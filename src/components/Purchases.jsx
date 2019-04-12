@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Purchase from './Purchase'
-import LogPurchase from './LogPurchase'
+import LogPurchase from './LogPurchase';
+
 
 export default class Purchases extends Component{
     state = {
@@ -42,10 +43,14 @@ export default class Purchases extends Component{
 
     render(){
         return(
-            <div>
-                <LogPurchase logPurchase={this.logPurchase} />
+            <div className="purchases">
+                {/* <LogPurchase logPurchase={this.logPurchase} /> */}
                 {this.state.purchases.map((p) => {
-                    return <Purchase key={p.id} purchaseInfo={p} handleDelete={this.handleDelete} editPurchase={this.editPurchase}/>
+                    return <Purchase 
+                            key={p.id} 
+                            purchaseInfo={p} 
+                            handleDelete={this.handleDelete} 
+                            editPurchase={this.editPurchase}/>
                 })}
             </div>
 

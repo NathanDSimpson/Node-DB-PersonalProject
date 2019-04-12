@@ -9,7 +9,7 @@ export default class DeletePurchase extends Component{
 
     render(){
         return(
-            <div>
+            <div className="delete">
                 <button onClick={this.handleClick}>DELETE</button>
             </div>
         )
