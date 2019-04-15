@@ -13,3 +13,15 @@ class App extends Component {
 }
 
 export default App;
+
+
+// TODO:
+// - sort all purchases by date
+// - allow sort by amount
+// - reset button for filters
+// - allow multiple filters at once**
+// - 
+// -
+// -
+// -
+// -

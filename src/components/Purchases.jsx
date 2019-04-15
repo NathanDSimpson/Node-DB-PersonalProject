@@ -134,9 +134,8 @@ export default class Purchases extends Component{
         }
         let totalSpending = 0
         displayArray.forEach(element => {
-            totalSpending += element.amount
+            totalSpending += +element.amount
         })
-        console.log(totalSpending)
 
         return(
             <div>

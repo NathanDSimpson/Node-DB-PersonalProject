@@ -35,20 +35,8 @@ body::before {
   background: rgba(37, 101, 30, .4);
 }
 
-.menu{
-
-}
-
-.logger{
-
-}
-
-.filter{
-
-}
-
 .purchases{
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   max-height: 75vh;
   bottom: 0;
 }
@@ -59,67 +47,78 @@ body::before {
   height: 30%
 }
 
+.purchases{
+  display: block;
+  justify-content: left;
+}
+
 .transaction {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   height: 5vh;
   font-size: .8em;
 }
 
-.amount{
+.amount, .date, .category, .memo, .tags, .edit, .delete{
   text-align: left;
-  min-width: 10%;
-  max-width: 10%;
   word-wrap: break-word;
 }
-.date{ 
-  text-align: left;
-  min-width: 10%;
-  max-width: 10%;
-  word-wrap: break-word;
 
+.amount{
+  width: 10%;
 }
+
+.date{
+  width: 10%;
+}
+
 .category{
-  text-align: left;
-  min-width: 10%;
-  max-width: 10%;
-  word-wrap: break-word;
+  width: 15%;
 }
+
+.tags{
+  width: 28%;
+}
+
 .memo{
-  text-align: left;
-  min-width: 40%;
-  max-width: 40%;
-  word-wrap: break-word;
+  width: 28%;
 }
+
 .edit{
-  min-width: 10%;
-  max-width: 10%;
+  width: 3%;
 }
+
 .delete{
-  min-width: 10%;
-  max-width: 10%;
+  width: 3%;
 } 
+
+
+.amountHeader, .dateHeader, .categoryHeader, .memoHeader, editHeader, .deleteHeader{
+  text-align: left;
+}
 
 .amountHeader{
-  width: 10%;
+  max-width: 10%;
+  min-width: 10%;
 }
 .dateHeader{
-  width: 10%;
+  max-width: 10%;
+  min-width: 10%;
 }
 .categoryHeader{
-  width: 20%;
+  max-width: 15%;
+  min-width: 15%;
 }
 .memoHeader{
-  width: 40%;
-  word-wrap: break-word;
+  max-width: 28%;
+  min-width: 28%;
 }
-.editHeader{
-  width: 10%;
+.tagsHeader{
+  text-align: left;
+  max-width: 28%;
+  min-width: 28%;
 }
-.deleteHeader{
-  width: 10%
-} 
 
 button{
   transition-duration: 400ms;
@@ -131,4 +130,8 @@ button:hover{
   background-color: darkgreen;
   color: white;
 
+}
+
+.total{
+  color: rgb(163, 32, 32);
 }

@@ -14,9 +14,9 @@ export default class NavBar extends Component{
                     <h1>Budget Buddy</h1>
                     <Filter purchases={this.props.purchases} filterByCategory={this.props.filterByCategory} filterByTag={this.props.filterByTag} filterByMonth={this.props.filterByMonth} filterByKeyword={this.props.filterByKeyword}/> <br/>
                     <LogPurchase logPurchase={this.props.logPurchase} /><br/>
-                    <h1>
+                    <h2 className='total'>
                         TOTAL:  ${this.props.totalSpending}
-                    </h1>
+                    </h2>
                 </div>
                 <TableHeaders/>
             </div>

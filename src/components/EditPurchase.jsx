@@ -19,9 +19,11 @@ export default class EditPurchase extends Component{
 
     handleSubmit = () => {
         let purchaseUpdate = this.state
-        let temp = this.state.tags.replace(/\s+/g, '').split('#')
-        temp.shift()
-        purchaseUpdate.tags = temp
+        if (typeof(this.state.tags) === 'string'){
+            let temp = this.state.tags.replace(/\s+/g, '').split('#')
+            temp.shift()
+            purchaseUpdate.tags = temp
+        }
         this.props.editPurchase(purchaseUpdate)        
         this.props.toggleEdit()
         this.setState({

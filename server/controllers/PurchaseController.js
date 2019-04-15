@@ -5,7 +5,7 @@ let purchases = [
         amount: 100,
         date: "4/10/19",
         category: "Entertainment",
-        tags: ['irresponsible', 'beer'],
+        tags: ['irresponsible', 'beer', "party"],
         memo: "I bought a lot of beer!"},
     {
         id: id++,
@@ -20,7 +20,7 @@ let purchases = [
         date: "3/10/19",
         category: "Food",
         tags: ['groceries', 'healthy'],
-        memo: "veggies"},
+        memo: "I bought vegtables."},
     {
         id: id++,
         amount: 50,
@@ -40,7 +40,7 @@ let purchases = [
         amount: 75,
         date: "1/10/19",
         category: "Entertainment",
-        tags: ['recreation', 'biking', 'maintenance'],
+        tags: ['outdoor', 'biking', 'maintenance'],
         memo: "I bought some bike parts"},
     {
         id: id++,
@@ -48,7 +48,56 @@ let purchases = [
         date: "4/11/19",
         category: "Transportation",
         tags: ['fuel', 'driving'],
-        memo: "I bought a tank of gas."}
+        memo: "I bought a tank of gas."},
+        {
+            id: id++,
+            amount: 100,
+            date: "1/10/19",
+            category: "Entertainment",
+            tags: ['irresponsible', 'beer', 'party'],
+            memo: "food for the party"},
+        {
+            id: id++,
+            amount: 50,
+            date: "8/11/19",
+            category: "Entertainment",
+            tags: ['outdoor', 'camping'],
+            memo: "I bought some camping gear"},   
+        {
+            id: id++,
+            amount: 100,
+            date: "6/10/19",
+            category: "Food",
+            tags: ['fastfood', 'unhealthy'],
+            memo: "mcdonalds"},
+        {
+            id: id++,
+            amount: 50,
+            date: "4/1/19",
+            category: "Transportation",
+            tags: ['maintenance', "driving"],
+            memo: "I got new wiper blades."},
+        {
+            id: id++,
+            amount: 30,
+            date: "2/27/19",
+            category: "Rent",
+            tags: ['utilities', "fixed expenses"],
+            memo: "I paid rent"},   
+        {
+            id: id++,
+            amount: 75,
+            date: "11/10/19",
+            category: "Food",
+            tags: ['irresponsible'],
+            memo: "I got chipotle for lunch"},
+        {
+            id: id++,
+            amount: 35,
+            date: "7/11/19",
+            category: "Transportation",
+            tags: ['fuel', 'driving'],
+            memo: "I bought a tank of gas."}
 ]
 
 module.exports = {
