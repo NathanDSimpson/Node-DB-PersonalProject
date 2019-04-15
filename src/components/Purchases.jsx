@@ -60,6 +60,31 @@ export default class Purchases extends Component{
         }
     }
 
+    filterByTag= filters => {
+        let temp = this.state.purchases.filter(element => {
+            let match = false
+            element.tags.forEach(tagElement => {
+                console.log(`tag element ${tagElement}`, `filter tag ${filters.tag}`)
+                if (tagElement === filters.tag){
+                    match = true
+                }
+            })
+            return match
+        })
+        if (filters.tag === ''){
+            this.setState({
+                filterToggle: false
+            })
+        }else{
+            this.setState({
+                filteredPurchases: temp
+            })
+            this.setState({
+                filterToggle: true
+            })
+        }
+    }
+
     render(){
         let displayArray = []
         if (this.state.filterToggle === false){
@@ -70,7 +95,7 @@ export default class Purchases extends Component{
 
         return(
             <div>
-                <NavBar logPurchase={this.logPurchase} purchases={this.state.purchases} filterByCategory={this.filterByCategory}/>
+                <NavBar logPurchase={this.logPurchase} purchases={this.state.purchases} filterByCategory={this.filterByCategory} filterByTag={this.filterByTag}/>
                 <div className="purchases">
                     {displayArray.map((p) => {
                         return <Purchase 

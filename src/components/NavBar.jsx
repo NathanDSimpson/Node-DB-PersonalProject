@@ -12,7 +12,7 @@ export default class NavBar extends Component{
                 <br/>
                 <div className="menu">
                     <h1>Budget Buddy</h1>
-                    <Filter purchases={this.props.purchases} filterByCategory={this.props.filterByCategory}/> <br/>
+                    <Filter purchases={this.props.purchases} filterByCategory={this.props.filterByCategory} filterByTag={this.props.filterByTag}/> <br/>
                     <LogPurchase logPurchase={this.props.logPurchase} /><br/>
                     <p>
                         TOTAL:  $1000.00

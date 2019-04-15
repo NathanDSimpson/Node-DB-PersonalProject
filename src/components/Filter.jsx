@@ -20,6 +20,11 @@ export default class Filter extends Component{
         this.props.filterByCategory(filters)
     }
 
+    handleTags = () => {
+        let filters = this.state
+        this.props.filterByTag(filters) // still need to pass this down through props
+    }
+
     render(){
         let key = 0
         let purchases = this.props.purchases
@@ -88,14 +93,14 @@ export default class Filter extends Component{
                 <button  className="logSubmit" onClick={this.handleCategory} >
                 Filter by Category</button>
 
-                <select onChange={this.handleChange} name="tags">
+                <select onChange={this.handleChange} name="tag">
                     Tags:
                     <option value="" key={key++}>-</option>
                     {uniqueTags.map(tag => {
                         return <option value={tag} key={key++}>{tag}</option>
                     })}
                 </select>
-                <button  className="logSubmit" onClick={this.handleSubmit} > 
+                <button  className="logSubmit" onClick={this.handleTags} > 
                 Filter by Tag</button>
 
                 <input  onChange={this.handleChange} type="keyword" name='keyword' placeholder='keyword in memo'/>
