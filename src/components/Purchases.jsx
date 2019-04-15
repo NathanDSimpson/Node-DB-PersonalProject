@@ -60,11 +60,10 @@ export default class Purchases extends Component{
         }
     }
 
-    filterByTag= filters => {
+    filterByTag = filters => {
         let temp = this.state.purchases.filter(element => {
             let match = false
             element.tags.forEach(tagElement => {
-                console.log(`tag element ${tagElement}`, `filter tag ${filters.tag}`)
                 if (tagElement === filters.tag){
                     match = true
                 }
@@ -85,6 +84,47 @@ export default class Purchases extends Component{
         }
     }
 
+    filterByMonth = filters => {
+        let temp = this.state.purchases.filter(element => {
+            let match = false
+            let date = element.date.split('/')
+            if (+date[0] === +filters.date){  
+                match = true
+            }
+            return match
+        })
+        this.setState({
+            filteredPurchases: temp
+        })
+        if (filters.date === ''){
+            this.setState({
+                filterToggle: false
+            })
+        }else{
+            this.setState({
+                filterToggle: true
+            })
+        }
+    }
+
+    filterByKeyword = filters => {
+        let temp = this.state.purchases.filter(element => element.memo.includes(filters.keyword))
+        this.setState({
+            filteredPurchases: temp
+        })
+        if (filters.keyword === ''){
+            this.setState({
+                filterToggle: false
+            })
+        }else{
+            this.setState({
+                filterToggle: true
+            })
+        }
+    }
+   
+    
+
     render(){
         let displayArray = []
         if (this.state.filterToggle === false){
@@ -92,10 +132,15 @@ export default class Purchases extends Component{
         } else{
             displayArray = this.state.filteredPurchases
         }
+        let totalSpending = 0
+        displayArray.forEach(element => {
+            totalSpending += element.amount
+        })
+        console.log(totalSpending)
 
         return(
             <div>
-                <NavBar logPurchase={this.logPurchase} purchases={this.state.purchases} filterByCategory={this.filterByCategory} filterByTag={this.filterByTag}/>
+                <NavBar logPurchase={this.logPurchase} purchases={this.state.purchases} filterByCategory={this.filterByCategory} filterByTag={this.filterByTag} filterByMonth={this.filterByMonth} filterByKeyword={this.filterByKeyword} totalSpending={totalSpending}/>
                 <div className="purchases">
                     {displayArray.map((p) => {
                         return <Purchase 

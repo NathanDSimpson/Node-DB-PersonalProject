@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 export default class Filter extends Component{
     state = {
-        month: '',
+        date: '',
         category: '',
         tag: '',
         keyword: ''
@@ -23,6 +23,16 @@ export default class Filter extends Component{
     handleTags = () => {
         let filters = this.state
         this.props.filterByTag(filters) // still need to pass this down through props
+    }
+
+    handleMonth = () => {
+        let filters = this.state
+        this.props.filterByMonth(filters)
+    }
+
+    handleKeyword = () => {
+        let filters = this.state
+        this.props.filterByKeyword(filters)
     }
 
     render(){
@@ -64,7 +74,9 @@ export default class Filter extends Component{
         return(
             <div className="filter">
                 <div>Filter your purchases (only use one):</div> 
-                    <select onChange={this.handleChange} name="month">
+                    <button  className="logSubmit" onClick={this.handleMonth} > 
+                    Month:</button>
+                    <select onChange={this.handleChange} name="date">
                     Month
                     <option value="" key={key++}>-</option>
                     <option value="1">January</option>
@@ -80,9 +92,9 @@ export default class Filter extends Component{
                     <option value="11">November</option>
                     <option value="12">December</option>
                 </select>
-                <button  className="logSubmit" onClick={this.handleSubmit} > 
-                Filter by Month</button>
 
+                <button  className="logSubmit" onClick={this.handleCategory} >
+                Category:</button>
                 <select onChange={this.handleChange} name="category">
                     Category:
                     <option value="" key={key++}>-</option>
@@ -90,9 +102,9 @@ export default class Filter extends Component{
                         return <option value={category} key={key++}>{category}</option>
                     })}
                 </select>
-                <button  className="logSubmit" onClick={this.handleCategory} >
-                Filter by Category</button>
 
+                <button  className="logSubmit" onClick={this.handleTags} > 
+                Tag:</button>
                 <select onChange={this.handleChange} name="tag">
                     Tags:
                     <option value="" key={key++}>-</option>
@@ -100,11 +112,10 @@ export default class Filter extends Component{
                         return <option value={tag} key={key++}>{tag}</option>
                     })}
                 </select>
-                <button  className="logSubmit" onClick={this.handleTags} > 
-                Filter by Tag</button>
+
 
                 <input  onChange={this.handleChange} type="keyword" name='keyword' placeholder='keyword in memo'/>
-                <button  className="logSubmit" onClick={this.handleSubmit} > Filter by Keyword</button>
+                <button  className="logSubmit" onClick={this.handleKeyword} > Filter by Keyword</button>
             </div>
         )
     }

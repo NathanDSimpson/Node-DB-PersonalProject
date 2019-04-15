@@ -20,12 +20,12 @@ export default class Purchase extends Component{
         return this.state.edit ? <EditPurchase toggleEdit={this.toggleEdit} purchaseInfo={this.props.purchaseInfo} editPurchase={this.props.editPurchase}/> : (
             <div 
                 className="transaction"
-                style={{borderBottom: '1px solid black'}}>
+                style={{borderTop: '1px solid black'}}>
                 <div className="amount">${purchase.amount}</div>
                 <div className="date">{purchase.date}</div>
                 <div className="category">{purchase.category}</div>
+                <div className="tags">{purchase.tags.map(tag => `#${tag}`)}</div>
                 <div className="memo">{purchase.memo}</div>
-                <div className="tags">{purchase.tags}</div>
                 <div className="edit">
                     <button onClick={this.toggleEdit}>EDIT</button>
                 </div>

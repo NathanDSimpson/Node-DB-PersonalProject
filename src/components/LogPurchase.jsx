@@ -18,7 +18,17 @@ export default class LogPurchase extends Component{
 
     handleSubmit = () => {
         let newPurchase = this.state
+        let temp = this.state.tags.replace(/\s+/g, '').split('#')
+        temp.shift()
+        newPurchase.tags = temp
         this.props.logPurchase(newPurchase)
+        this.setState({
+            amount: 0,
+            date: '',
+            category: '',
+            memo: '',
+            tags: ''
+        })
     }
 
     render(){
@@ -29,7 +39,7 @@ export default class LogPurchase extends Component{
                 <input  className="logEntry" onChange={this.handleInput} type="text" name='date' placeholder='date'/>
                 <input  className="logEntry" onChange={this.handleInput} type="text" name='category' placeholder='category'/>
                 <input  className="logEntry" onChange={this.handleInput} type="text" name='memo' placeholder='memo'/>
-                <input  className="logEntry" onChange={this.handleInput} type="text" name='tags' placeholder='tags'/>
+                <input  className="logEntry" onChange={this.handleInput} type="text" name='tags' placeholder='tags (use "#")'/>
                 <button className="logSubmit" onClick={this.handleSubmit} > SUBMIT</button>
             </div>
         )

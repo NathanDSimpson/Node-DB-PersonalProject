@@ -12,11 +12,11 @@ export default class NavBar extends Component{
                 <br/>
                 <div className="menu">
                     <h1>Budget Buddy</h1>
-                    <Filter purchases={this.props.purchases} filterByCategory={this.props.filterByCategory} filterByTag={this.props.filterByTag}/> <br/>
+                    <Filter purchases={this.props.purchases} filterByCategory={this.props.filterByCategory} filterByTag={this.props.filterByTag} filterByMonth={this.props.filterByMonth} filterByKeyword={this.props.filterByKeyword}/> <br/>
                     <LogPurchase logPurchase={this.props.logPurchase} /><br/>
-                    <p>
-                        TOTAL:  $1000.00
-                    </p>
+                    <h1>
+                        TOTAL:  ${this.props.totalSpending}
+                    </h1>
                 </div>
                 <TableHeaders/>
             </div>
