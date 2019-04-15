@@ -31,7 +31,7 @@ export default class EditPurchase extends Component{
                 <input onChange={this.handleInput} type="text" name='category' placeholder={this.props.purchaseInfo.category}/>
                 <input onChange={this.handleInput} type="text" name='memo' placeholder={this.props.purchaseInfo.memo}/>
                 <input onChange={this.handleInput} type="text" name='tags' placeholder={this.props.purchaseInfo.tags}/>
-                <button onClick={this.handleSubmit}>SUBMIT</button>
+                <button onClick={this.handleSubmit}>CONFIRM CHANGES</button>
                 {/* <button onClick={this.handleSubmit}>CANCEL</button> */}
             </div>
         )

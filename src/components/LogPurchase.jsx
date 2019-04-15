@@ -24,7 +24,7 @@ export default class LogPurchase extends Component{
     render(){
         return(
             <div className="logger">
-                <h4>Log a new purchase:</h4> <br/>
+                <div>Log a new purchase:</div>
                 <input  className="logEntry" onChange={this.handleInput} type="text" name='amount' placeholder='amount'/>
                 <input  className="logEntry" onChange={this.handleInput} type="text" name='date' placeholder='date'/>
                 <input  className="logEntry" onChange={this.handleInput} type="text" name='category' placeholder='category'/>

@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Purchase from './Purchase'
-import LogPurchase from './LogPurchase';
-
+import NavBar from './NavBar'
 
 export default class Purchases extends Component{
     state = {
-        purchases: []
+        purchases: [],
+        filteredPurchases: [],
+        filterToggle: false
       }
 
     componentDidMount(){
@@ -41,17 +42,44 @@ export default class Purchases extends Component{
         }).catch( err => console.log('We have a problem: ', err))
     }
 
+    filterByCategory = filters => {
+        let temp = this.state.purchases.filter( element => {
+            return element.category === filters.category
+        })
+        if (filters.category === ''){
+            this.setState({
+                filterToggle: false
+            })
+        }else{
+            this.setState({
+                filteredPurchases: temp
+            })
+            this.setState({
+                filterToggle: true
+            })
+        }
+    }
+
     render(){
+        let displayArray = []
+        if (this.state.filterToggle === false){
+            displayArray = this.state.purchases
+        } else{
+            displayArray = this.state.filteredPurchases
+        }
+
         return(
-            <div className="purchases">
-                {/* <LogPurchase logPurchase={this.logPurchase} /> */}
-                {this.state.purchases.map((p) => {
-                    return <Purchase 
-                            key={p.id} 
-                            purchaseInfo={p} 
-                            handleDelete={this.handleDelete} 
-                            editPurchase={this.editPurchase}/>
-                })}
+            <div>
+                <NavBar logPurchase={this.logPurchase} purchases={this.state.purchases} filterByCategory={this.filterByCategory}/>
+                <div className="purchases">
+                    {displayArray.map((p) => {
+                        return <Purchase 
+                                key={p.id} 
+                                purchaseInfo={p} 
+                                handleDelete={this.handleDelete} 
+                                editPurchase={this.editPurchase}/>
+                    })}
+                </div>
             </div>
 
         )
